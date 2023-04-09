@@ -769,12 +769,6 @@ function noSpace(x){
 // console.log(calcAverage(tips));
 
 
-
-
-
-
-
-
 // const years = [1991, 2007, 1969, 2020];
 // const ages = [];
 
@@ -818,27 +812,67 @@ function noSpace(x){
 //   console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`)
 // }
 
+// *************** 
+
+//My solution:
+
+// function bmi(weight, height) {
+//   let bmi = weight / height ** 2;
+//   if (bmi <= 18.5) {
+//     return `Underweight` 
+//   } else if (bmi > 18.5 && bmi <= 25.0) {
+//     return `Normal` 
+//   } else if (bmi > 25.0 && bmi <= 30.0) {
+//     return `Overweight` 
+//   } else if (bmi > 30) {
+//     return `Obesse`
+//   }  
+// };
+
+// Best practice: 
+
+const bmi = (w, h, bmi = w/h/h) =>  bmi <= 18.5 ? "Underweight" :
+                                    bmi <= 25 ? "Normal" :
+                                    bmi <= 30 ? "Overweight" : "Obese";
+
+//                                     console.log(bmi(18, 1.80));
 
 
-function bmi(weight, height) {
-  let bmi = weight / height ** 2;
-  if (bmi <= 18.5) {
-    return `Underweight` 
-  } else if (bmi > 18.5 && bmi <= 25.0) {
-    return `Normal` 
-  } else if (bmi > 25.0 && bmi <= 30.0) {
-    return `Overweight` 
-  } else if (bmi > 30) {
-    return `Obesse`
-  }  
-};
+// *************** 
+// Your task is to create a function that does four basic mathematical operations.
+//The function should take three arguments - operation(string/char), value1(number), value2(number).
+//The function should return result of numbers after applying the chosen operation.
+//Examples(Operator, value1, value2) --> output
 
-console.log(bmi(180, 1.80));
+// My solution
 
-// const bmi = (w, h, bmi = w/h/h) =>  bmi <= 18.5 ? "Underweight" :
-//                                     bmi <= 25 ? "Normal" :
-//                                     bmi <= 30 ? "Overweight" : "Obese";
+const basicOp = (_oper, value1, value2) => 
+_oper === `+` ? value1 + value2 : 
+_oper === `-` ? value1 - value2 :
+_oper === `*` ? value1 * value2 :
+_oper === `/` ? value1 / value2 : 
+null;
 
+console.log((basicOp(`+`, 2, 8)));
+
+//Best Practice 1:
+
+// function basicOp(operation, value1, value2) {
+//   switch (operation) {
+//       case '+':
+//           return value1 + value2;
+//       case '-':
+//           return value1 - value2;
+//       case '*':
+//           return value1 * value2;
+//       case '/':
+//           return value1 / value2;
+//       default:
+//           return 0;
+//   }
+// }
+
+//Best practice 2
 
 
 // SIMPLE MULTIUPLICATION
@@ -853,4 +887,8 @@ console.log(bmi(180, 1.80));
 
 function simpleMultiplication(n) {
   return n * (n % 2 ? 9 : 8);
+}
+
+function numberToString(num) {
+  return num.toString(); //fastest way for browsers to calculate
 }
